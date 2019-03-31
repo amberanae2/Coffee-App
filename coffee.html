@@ -14,6 +14,28 @@
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
-    
+              <div id="map"></div>   
+
+              <script type="text/javascript" src="assets/javascript/coffee.js"></script>
+              <script>
+               function initMap() {
+                   //map options
+                var options = {
+                   zoom: 8,
+                   center: {lat:32.897480,lng:-97.040443 } 
+                }  
+                // new map
+                var map = new google.maps.Map(document.getElementById('map'), options);
+                // add marker
+                var marker = new google.maps.Marker({
+                    position:{lat:32.897480, lng:-97.040443 },
+                    map:map,
+                });
+              }   
+              </script>
+              <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTGD3axhmsU-DIoCFYI4Kf4GdtyrmWEnM
+              &callback=initMap">
+              </script>
     </body>
 </html>
