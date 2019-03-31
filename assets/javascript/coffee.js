@@ -1,14 +1,41 @@
-// function initMap() {
-// }
+require('dotenv').config();
+var fs = require('fs')
+var path = require('path');
+var express = require('express');
+const Yelp = require("./yelp");
+const yelp = new Yelp({ apiKey: process.env.YELP_API_KEY })
 
-// function initMap() {
-//   // The location of Uluru
-//   var uluru = {lat: -25.344, lng: 131.036};
-//   // The map, centered at Uluru
-//   var map = new google.maps.Map(
-//       document.getElementById('map'), {zoom: 4, center: uluru});
-//   // The marker, positioned at Uluru
-//   var marker = new google.maps.Marker({position: uluru, map: map});
-// }
-   
+var app = express();
+
+app.use(express.static('public'));
+
+app.get('/api/search', function (req, res) {
+  var term = req.query.term;
+  var location = req.query.location;
+
+  if (!term || !location) {
+    res.json({
+      error: 'You must enter a location!'
+    });
+  }
+
+  yelp.search({ term, location })
+    .then(data => {
+      return res.json(data);
+    })
+    .catch((e) => {
+      console.error("Error", e);
+    });
+});
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
+});
+// app.get('/config', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'config.html'));
+// });
+
+app.listen(process.env.PORT||3000, function() {
+  console.log('listening at localhost:3000');
+});
     

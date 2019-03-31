@@ -41,8 +41,4 @@ form.example input[type=text] {
     display: table;
   }
 
-  #map {
-    width: 100%;
-    height: 350px;
-    float: right;
-  }
+  
