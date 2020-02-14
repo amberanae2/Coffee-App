@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  background: url("https://cdn.pixabay.com/photo/2016/11/29/12/46/breakfast-1869599_1280.jpg");
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-inline {
+  text-align: center;
+  display: block;
+  padding-left: 5%;
+}

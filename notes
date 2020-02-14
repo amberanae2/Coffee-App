@@ -1,0 +1,10 @@
+//this is a one page app
+/// I want to allow the user to type in search the city that they are in
+/// I want whatever city they type in to populate the city,reviews,miles,photo,times open of the coffee shop.
+
+/// figure out a way for the search box to type in city
+/// allow the user to clear the search
+/// make it to where the user has to type in city and state
+/// make city and state mandatory to type
+/// allow zip code to be searched??
+/// need to find a way to render the results
